@@ -1,0 +1,9 @@
+{
+  "name": "geo-app",
+  "version": "1.0.0",
+  "description": "App for getting location with bbox",
+  "main": "index.js",
+  "repository": "https://github.com/jeffascript/geolocate-with-bbox.git",
+  "author": "Jeffascript",
+  "license": "MIT"
+}
