@@ -7,6 +7,7 @@ import {
     ConvertedGeoJsonError,
     ConvertedGeoJsonResponse,
     LatLongQuery,
+    ConvertedGeoJsonWithBBbox,
 } from '@jeff/shared';
 import NotFound from '../errors/notFound';
 import { convertToGeoJson } from './convertOsmToGeojson';
@@ -25,6 +26,14 @@ class FetchRequest {
             .get(url)
             .then((response: AxiosResponse) => response.data)
             .then((data) => convertToGeoJson(data) as ConvertedGeoJson)
+            .then((finalResp) => {
+                const formatedResponse = {
+                    reqBbox: { lonMin, latMin, lonMax, latMax },
+                    respData: finalResp,
+                };
+
+                return formatedResponse as ConvertedGeoJsonWithBBbox;
+            })
             .catch((error: AxiosError) => {
                 if (error.response) {
                     throw new NotFound(error.response.data as ConvertedGeoJsonError['message']);

@@ -16,9 +16,16 @@ export type ConvertedGeoJson = {
   features: ConvertedFeature[];
 };
 
+export type ConvertedGeoJsonWithBBbox = {
+  reqBbox: BboxQuery;
+  respData: ConvertedGeoJson;
+};
+
 export type ConvertedGeoJsonError = {
   error: number;
   message: any;
 };
 
-export type ConvertedGeoJsonResponse = ConvertedGeoJson | ConvertedGeoJsonError;
+export type ConvertedGeoJsonResponse =
+  | ConvertedGeoJsonWithBBbox
+  | ConvertedGeoJsonError;
