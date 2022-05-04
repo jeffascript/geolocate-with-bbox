@@ -1,18 +1,20 @@
-import { AnyAction, configureStore } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import featuresReducer from "./featuresSlice";
-import oneFeatureReducer from "./oneFeatureSlice";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable import/no-extraneous-dependencies */
+import { AnyAction, configureStore } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import featuresReducer from './featuresSlice';
+import oneFeatureReducer from './oneFeatureSlice';
 
 const store = configureStore({
-  reducer: {
-    allFeatures: featuresReducer,
-    oneFeature: oneFeatureReducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+    reducer: {
+        allFeatures: featuresReducer,
+        oneFeature: oneFeatureReducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

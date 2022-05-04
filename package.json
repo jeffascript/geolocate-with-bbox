@@ -5,5 +5,13 @@
   "main": "index.js",
   "repository": "https://github.com/jeffascript/geolocate-with-bbox.git",
   "author": "Jeffascript",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "client": "cd client && yarn link @Jeff/shared && yarn start",
+    "backend": "cd server && yarn link @Jeff/shared && yarn dev",
+    "dev": "concurrently \"yarn run backend\" \"yarn run client\""
+  },
+  "dependencies": {
+    "concurrently": "^7.1.0"
+  }
 }

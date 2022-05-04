@@ -1,27 +1,26 @@
-import { ColorModeScript } from "@chakra-ui/react";
-import * as React from "react";
-import ReactDOM from "react-dom";
-import { App } from "./App";
-import { ChakraProvider, theme } from "@chakra-ui/react";
-import reportWebVitals from "./reportWebVitals";
-import * as serviceWorker from "./serviceWorker";
-import { GeoModeSelectProvider } from "./context-api/GeoSelectCtx";
-import { Provider } from "react-redux";
-import store from "../src/redux/store";
+import { ColorModeScript, ChakraProvider, theme } from '@chakra-ui/react';
+import * as React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import * as serviceWorker from './serviceWorker';
+import { GeoModeSelectProvider } from './context-api/GeoSelectCtx';
+import store from './redux/store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ColorModeScript />
-    <Provider store={store}>
-      {" "}
-      <GeoModeSelectProvider>
-        <ChakraProvider theme={theme}>
-          <App />
-        </ChakraProvider>
-      </GeoModeSelectProvider>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+    <React.StrictMode>
+        <ColorModeScript />
+        <Provider store={store}>
+            {' '}
+            <GeoModeSelectProvider>
+                <ChakraProvider theme={theme}>
+                    <App />
+                </ChakraProvider>
+            </GeoModeSelectProvider>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
